@@ -1,0 +1,2056 @@
+/*
+Made By Terry Yu (TerryakiYou)
+note to self: DO NOT RUN ON THIS CLASS OR IT WILL DELETE ITSELF
+*/
+
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.KeyEvent;
+import java.awt.event.MouseEvent;
+import java.util.Scanner;
+
+/*
+accepts all of these characters: (space)aAbBcCdDeEfFgGhHiIjJkKlLmMnNoOpPqQrRsStTuUvVwWxXyYzZ1234567890!()'"/?
+put the name of this class first
+then put the amount of times you want to repeat the message
+then put in what you want to say
+run, then run again :)
+when you run the second time, read the comments
+this isn't foolproof, you can adjust delay to type at different speeds, but the faster you type the more the shift key is likely to mess up
+at the current speed, and with no lag, the shift key still messes up sometimes
+you have to manually edit that
+*/
+
+public class Spammer {
+    public static void main(String[] args) throws AWTException {
+        Robot r = new Robot();
+        Scanner sc = new Scanner(System.in);
+        System.out.print("this java class's name: ");
+        String name = sc.nextLine();
+        System.out.print("repeat: ");
+        String j = sc.nextLine();
+        System.out.print("input: ");
+        String input = sc.nextLine();
+
+        //delay to start writing, 5 sec but can change. do not change setAutoDelay
+        r.delay(5000);
+        r.setAutoDelay(25);
+
+        //initialization
+        init(name, r);
+
+        //setup robot
+        robot(r);
+
+        //fori
+        if(!j.equals("")) fori(j, r);
+
+        //typing
+        String[] a = input.split("");
+        for (int i = 0; i < a.length; i++) {
+            start(r);
+            type(a[i], r, true);
+            line(r);
+            end(r);
+            type(a[i], r, false);
+            line(r);
+        }
+        //sending
+        newline(r);
+
+        //signature
+        sig(r);
+    }
+
+    private static void init(String name, Robot r) {
+        //deleting
+        r.mouseMove((int)Toolkit.getDefaultToolkit().getScreenSize().getWidth()/2, (int)Toolkit.getDefaultToolkit().getScreenSize().getHeight()/2);
+        r.mousePress(MouseEvent.BUTTON1_DOWN_MASK);
+        r.keyPress(KeyEvent.VK_META);
+        r.delay(25);
+        r.keyPress(KeyEvent.VK_A);
+        r.keyRelease(KeyEvent.VK_A);
+        r.keyRelease(KeyEvent.VK_META);
+        r.keyPress(KeyEvent.VK_DELETE);
+
+        //imports
+        importinit(r);
+        r.keyPress(KeyEvent.VK_A);
+        r.keyRelease(KeyEvent.VK_A);
+        r.keyPress(KeyEvent.VK_W);
+        r.keyRelease(KeyEvent.VK_W);
+        r.keyPress(KeyEvent.VK_T);
+        r.keyRelease(KeyEvent.VK_T);
+        r.keyPress(KeyEvent.VK_PERIOD);
+        r.keyRelease(KeyEvent.VK_PERIOD);
+        r.keyPress(KeyEvent.VK_SHIFT);
+        r.keyPress(KeyEvent.VK_8);
+        r.keyRelease(KeyEvent.VK_8);
+        r.keyRelease(KeyEvent.VK_SHIFT);
+        r.keyPress(KeyEvent.VK_SEMICOLON);
+        r.keyRelease(KeyEvent.VK_SEMICOLON);
+        r.keyPress(KeyEvent.VK_ENTER);
+        r.keyRelease(KeyEvent.VK_ENTER);
+        importinit(r);
+        r.keyPress(KeyEvent.VK_A);
+        r.keyRelease(KeyEvent.VK_A);
+        r.keyPress(KeyEvent.VK_W);
+        r.keyRelease(KeyEvent.VK_W);
+        r.keyPress(KeyEvent.VK_T);
+        r.keyRelease(KeyEvent.VK_T);
+        r.keyPress(KeyEvent.VK_PERIOD);
+        r.keyRelease(KeyEvent.VK_PERIOD);
+        r.keyPress(KeyEvent.VK_E);
+        r.keyRelease(KeyEvent.VK_E);
+        r.keyPress(KeyEvent.VK_V);
+        r.keyRelease(KeyEvent.VK_V);
+        r.keyPress(KeyEvent.VK_E);
+        r.keyRelease(KeyEvent.VK_E);
+        r.keyPress(KeyEvent.VK_N);
+        r.keyRelease(KeyEvent.VK_N);
+        r.keyPress(KeyEvent.VK_T);
+        r.keyRelease(KeyEvent.VK_T);
+        r.keyPress(KeyEvent.VK_PERIOD);
+        r.keyRelease(KeyEvent.VK_PERIOD);
+        r.keyPress(KeyEvent.VK_SHIFT);
+        r.keyPress(KeyEvent.VK_K);
+        r.keyRelease(KeyEvent.VK_K);
+        r.keyRelease(KeyEvent.VK_SHIFT);
+        r.keyPress(KeyEvent.VK_E);
+        r.keyRelease(KeyEvent.VK_E);
+        r.keyPress(KeyEvent.VK_Y);
+        r.keyRelease(KeyEvent.VK_Y);
+        r.keyPress(KeyEvent.VK_SHIFT);
+        r.keyPress(KeyEvent.VK_E);
+        r.keyRelease(KeyEvent.VK_E);
+        r.keyRelease(KeyEvent.VK_SHIFT);
+        r.keyPress(KeyEvent.VK_V);
+        r.keyRelease(KeyEvent.VK_V);
+        r.keyPress(KeyEvent.VK_E);
+        r.keyRelease(KeyEvent.VK_E);
+        r.keyPress(KeyEvent.VK_N);
+        r.keyRelease(KeyEvent.VK_N);
+        r.keyPress(KeyEvent.VK_T);
+        r.keyRelease(KeyEvent.VK_T);
+        r.keyPress(KeyEvent.VK_SEMICOLON);
+        r.keyRelease(KeyEvent.VK_SEMICOLON);
+        r.keyPress(KeyEvent.VK_ENTER);
+        r.keyRelease(KeyEvent.VK_ENTER);
+        r.keyPress(KeyEvent.VK_ENTER);
+        r.keyRelease(KeyEvent.VK_ENTER);
+
+        //notes
+        r.keyPress(KeyEvent.VK_SLASH);
+        r.keyRelease(KeyEvent.VK_SLASH);
+        r.keyPress(KeyEvent.VK_SLASH);
+        r.keyRelease(KeyEvent.VK_SLASH);
+        r.keyPress(KeyEvent.VK_O);
+        r.keyRelease(KeyEvent.VK_O);
+        r.keyPress(KeyEvent.VK_N);
+        r.keyRelease(KeyEvent.VK_N);
+        r.keyPress(KeyEvent.VK_C);
+        r.keyRelease(KeyEvent.VK_C);
+        r.keyPress(KeyEvent.VK_E);
+        r.keyRelease(KeyEvent.VK_E);
+        r.keyPress(KeyEvent.VK_SPACE);
+        r.keyRelease(KeyEvent.VK_SPACE);
+        r.keyPress(KeyEvent.VK_Y);
+        r.keyRelease(KeyEvent.VK_Y);
+        r.keyPress(KeyEvent.VK_O);
+        r.keyRelease(KeyEvent.VK_O);
+        r.keyPress(KeyEvent.VK_U);
+        r.keyRelease(KeyEvent.VK_U);
+        r.keyPress(KeyEvent.VK_SPACE);
+        r.keyRelease(KeyEvent.VK_SPACE);
+        r.keyPress(KeyEvent.VK_R);
+        r.keyRelease(KeyEvent.VK_R);
+        r.keyPress(KeyEvent.VK_U);
+        r.keyRelease(KeyEvent.VK_U);
+        r.keyPress(KeyEvent.VK_N);
+        r.keyRelease(KeyEvent.VK_N);
+        r.keyPress(KeyEvent.VK_COMMA);
+        r.keyRelease(KeyEvent.VK_COMMA);
+        r.keyPress(KeyEvent.VK_SPACE);
+        r.keyRelease(KeyEvent.VK_SPACE);
+        r.keyPress(KeyEvent.VK_Y);
+        r.keyRelease(KeyEvent.VK_Y);
+        r.keyPress(KeyEvent.VK_O);
+        r.keyRelease(KeyEvent.VK_O);
+        r.keyPress(KeyEvent.VK_U);
+        r.keyRelease(KeyEvent.VK_U);
+        r.keyPress(KeyEvent.VK_SPACE);
+        r.keyRelease(KeyEvent.VK_SPACE);
+        r.keyPress(KeyEvent.VK_H);
+        r.keyRelease(KeyEvent.VK_H);
+        r.keyPress(KeyEvent.VK_A);
+        r.keyRelease(KeyEvent.VK_A);
+        r.keyPress(KeyEvent.VK_V);
+        r.keyRelease(KeyEvent.VK_V);
+        r.keyPress(KeyEvent.VK_E);
+        r.keyRelease(KeyEvent.VK_E);
+        r.keyPress(KeyEvent.VK_SPACE);
+        r.keyRelease(KeyEvent.VK_SPACE);
+        r.keyPress(KeyEvent.VK_1);
+        r.keyRelease(KeyEvent.VK_1);
+        r.keyPress(KeyEvent.VK_0);
+        r.keyRelease(KeyEvent.VK_0);
+        r.keyPress(KeyEvent.VK_SPACE);
+        r.keyRelease(KeyEvent.VK_SPACE);
+        r.keyPress(KeyEvent.VK_S);
+        r.keyRelease(KeyEvent.VK_S);
+        r.keyPress(KeyEvent.VK_E);
+        r.keyRelease(KeyEvent.VK_E);
+        r.keyPress(KeyEvent.VK_C);
+        r.keyRelease(KeyEvent.VK_C);
+        r.keyPress(KeyEvent.VK_SPACE);
+        r.keyRelease(KeyEvent.VK_SPACE);
+        r.keyPress(KeyEvent.VK_T);
+        r.keyRelease(KeyEvent.VK_T);
+        r.keyPress(KeyEvent.VK_O);
+        r.keyRelease(KeyEvent.VK_O);
+        r.keyPress(KeyEvent.VK_SPACE);
+        r.keyRelease(KeyEvent.VK_SPACE);
+        r.keyPress(KeyEvent.VK_O);
+        r.keyRelease(KeyEvent.VK_O);
+        r.keyPress(KeyEvent.VK_P);
+        r.keyRelease(KeyEvent.VK_P);
+        r.keyPress(KeyEvent.VK_E);
+        r.keyRelease(KeyEvent.VK_E);
+        r.keyPress(KeyEvent.VK_N);
+        r.keyRelease(KeyEvent.VK_N);
+        r.keyPress(KeyEvent.VK_SPACE);
+        r.keyRelease(KeyEvent.VK_SPACE);
+        r.keyPress(KeyEvent.VK_T);
+        r.keyRelease(KeyEvent.VK_T);
+        r.keyPress(KeyEvent.VK_E);
+        r.keyRelease(KeyEvent.VK_E);
+        r.keyPress(KeyEvent.VK_X);
+        r.keyRelease(KeyEvent.VK_X);
+        r.keyPress(KeyEvent.VK_T);
+        r.keyRelease(KeyEvent.VK_T);
+        r.keyPress(KeyEvent.VK_SPACE);
+        r.keyRelease(KeyEvent.VK_SPACE);
+        r.keyPress(KeyEvent.VK_B);
+        r.keyRelease(KeyEvent.VK_B);
+        r.keyPress(KeyEvent.VK_O);
+        r.keyRelease(KeyEvent.VK_O);
+        r.keyPress(KeyEvent.VK_X);
+        r.keyRelease(KeyEvent.VK_X);
+        r.keyPress(KeyEvent.VK_SPACE);
+        r.keyRelease(KeyEvent.VK_SPACE);
+        r.keyPress(KeyEvent.VK_T);
+        r.keyRelease(KeyEvent.VK_T);
+        r.keyPress(KeyEvent.VK_O);
+        r.keyRelease(KeyEvent.VK_O);
+        r.keyPress(KeyEvent.VK_SPACE);
+        r.keyRelease(KeyEvent.VK_SPACE);
+        r.keyPress(KeyEvent.VK_R);
+        r.keyRelease(KeyEvent.VK_R);
+        r.keyPress(KeyEvent.VK_E);
+        r.keyRelease(KeyEvent.VK_E);
+        r.keyPress(KeyEvent.VK_C);
+        r.keyRelease(KeyEvent.VK_C);
+        r.keyPress(KeyEvent.VK_I);
+        r.keyRelease(KeyEvent.VK_I);
+        r.keyPress(KeyEvent.VK_P);
+        r.keyRelease(KeyEvent.VK_P);
+        r.keyPress(KeyEvent.VK_I);
+        r.keyRelease(KeyEvent.VK_I);
+        r.keyPress(KeyEvent.VK_E);
+        r.keyRelease(KeyEvent.VK_E);
+        r.keyPress(KeyEvent.VK_N);
+        r.keyRelease(KeyEvent.VK_N);
+        r.keyPress(KeyEvent.VK_T);
+        r.keyRelease(KeyEvent.VK_T);
+        r.keyPress(KeyEvent.VK_SPACE);
+        r.keyRelease(KeyEvent.VK_SPACE);
+        r.keyPress(KeyEvent.VK_O);
+        r.keyRelease(KeyEvent.VK_O);
+        r.keyPress(KeyEvent.VK_N);
+        r.keyRelease(KeyEvent.VK_N);
+        r.keyPress(KeyEvent.VK_SPACE);
+        r.keyRelease(KeyEvent.VK_SPACE);
+        r.keyPress(KeyEvent.VK_M);
+        r.keyRelease(KeyEvent.VK_M);
+        r.keyPress(KeyEvent.VK_E);
+        r.keyRelease(KeyEvent.VK_E);
+        r.keyPress(KeyEvent.VK_S);
+        r.keyRelease(KeyEvent.VK_S);
+        r.keyPress(KeyEvent.VK_S);
+        r.keyRelease(KeyEvent.VK_S);
+        r.keyPress(KeyEvent.VK_A);
+        r.keyRelease(KeyEvent.VK_A);
+        r.keyPress(KeyEvent.VK_G);
+        r.keyRelease(KeyEvent.VK_G);
+        r.keyPress(KeyEvent.VK_E);
+        r.keyRelease(KeyEvent.VK_E);
+        r.keyPress(KeyEvent.VK_S);
+        r.keyRelease(KeyEvent.VK_S);
+        r.keyPress(KeyEvent.VK_ENTER);
+        r.keyRelease(KeyEvent.VK_ENTER);
+        r.keyPress(KeyEvent.VK_ENTER);
+        r.keyRelease(KeyEvent.VK_ENTER);
+
+        //class setup
+        r.keyPress(KeyEvent.VK_P);
+        r.keyRelease(KeyEvent.VK_P);
+        r.keyPress(KeyEvent.VK_U);
+        r.keyRelease(KeyEvent.VK_U);
+        r.keyPress(KeyEvent.VK_B);
+        r.keyRelease(KeyEvent.VK_B);
+        r.keyPress(KeyEvent.VK_L);
+        r.keyRelease(KeyEvent.VK_L);
+        r.keyPress(KeyEvent.VK_I);
+        r.keyRelease(KeyEvent.VK_I);
+        r.keyPress(KeyEvent.VK_C);
+        r.keyRelease(KeyEvent.VK_C);
+        r.keyPress(KeyEvent.VK_SPACE);
+        r.keyRelease(KeyEvent.VK_SPACE);
+        r.keyPress(KeyEvent.VK_C);
+        r.keyRelease(KeyEvent.VK_C);
+        r.keyPress(KeyEvent.VK_L);
+        r.keyRelease(KeyEvent.VK_L);
+        r.keyPress(KeyEvent.VK_A);
+        r.keyRelease(KeyEvent.VK_A);
+        r.keyPress(KeyEvent.VK_S);
+        r.keyRelease(KeyEvent.VK_S);
+        r.keyPress(KeyEvent.VK_S);
+        r.keyRelease(KeyEvent.VK_S);
+        r.keyPress(KeyEvent.VK_SPACE);
+        r.keyRelease(KeyEvent.VK_SPACE);
+        String[] a = name.split("");
+        for (int i = 0; i < a.length; i++) {
+            if(Character.isUpperCase(a[i].charAt(0))) {
+                String j = a[i].toLowerCase();
+                type(j, r, true);
+            }
+            else {
+                KeyStroke ks = KeyStroke.getKeyStroke(a[i].charAt(0), 0);
+                r.keyPress(ks.getKeyCode() - 32);
+                r.keyRelease(ks.getKeyCode() - 32);
+            }
+        }
+        r.keyPress(KeyEvent.VK_SPACE);
+        r.keyRelease(KeyEvent.VK_SPACE);
+        r.keyPress(KeyEvent.VK_SHIFT);
+        r.keyPress(KeyEvent.VK_OPEN_BRACKET);
+        r.keyRelease(KeyEvent.VK_OPEN_BRACKET);
+        r.keyRelease(KeyEvent.VK_SHIFT);
+        r.keyPress(KeyEvent.VK_ENTER);
+        r.keyRelease(KeyEvent.VK_ENTER);
+
+        //psvm setup
+        r.keyPress(KeyEvent.VK_P);
+        r.keyRelease(KeyEvent.VK_P);
+        r.keyPress(KeyEvent.VK_U);
+        r.keyRelease(KeyEvent.VK_U);
+        r.keyPress(KeyEvent.VK_B);
+        r.keyRelease(KeyEvent.VK_B);
+        r.keyPress(KeyEvent.VK_L);
+        r.keyRelease(KeyEvent.VK_L);
+        r.keyPress(KeyEvent.VK_I);
+        r.keyRelease(KeyEvent.VK_I);
+        r.keyPress(KeyEvent.VK_C);
+        r.keyRelease(KeyEvent.VK_C);
+        r.keyPress(KeyEvent.VK_SPACE);
+        r.keyRelease(KeyEvent.VK_SPACE);
+        r.keyPress(KeyEvent.VK_S);
+        r.keyRelease(KeyEvent.VK_S);
+        r.keyPress(KeyEvent.VK_T);
+        r.keyRelease(KeyEvent.VK_T);
+        r.keyPress(KeyEvent.VK_A);
+        r.keyRelease(KeyEvent.VK_A);
+        r.keyPress(KeyEvent.VK_T);
+        r.keyRelease(KeyEvent.VK_T);
+        r.keyPress(KeyEvent.VK_I);
+        r.keyRelease(KeyEvent.VK_I);
+        r.keyPress(KeyEvent.VK_C);
+        r.keyRelease(KeyEvent.VK_C);
+        r.keyPress(KeyEvent.VK_SPACE);
+        r.keyRelease(KeyEvent.VK_SPACE);
+        r.keyPress(KeyEvent.VK_V);
+        r.keyRelease(KeyEvent.VK_V);
+        r.keyPress(KeyEvent.VK_O);
+        r.keyRelease(KeyEvent.VK_O);
+        r.keyPress(KeyEvent.VK_I);
+        r.keyRelease(KeyEvent.VK_I);
+        r.keyPress(KeyEvent.VK_D);
+        r.keyRelease(KeyEvent.VK_D);
+        r.keyPress(KeyEvent.VK_SPACE);
+        r.keyRelease(KeyEvent.VK_SPACE);
+        r.keyPress(KeyEvent.VK_M);
+        r.keyRelease(KeyEvent.VK_M);
+        r.keyPress(KeyEvent.VK_A);
+        r.keyRelease(KeyEvent.VK_A);
+        r.keyPress(KeyEvent.VK_I);
+        r.keyRelease(KeyEvent.VK_I);
+        r.keyPress(KeyEvent.VK_N);
+        r.keyRelease(KeyEvent.VK_N);
+        r.keyPress(KeyEvent.VK_SHIFT);
+        r.keyPress(KeyEvent.VK_9);
+        r.keyRelease(KeyEvent.VK_9);
+        r.keyRelease(KeyEvent.VK_SHIFT);
+        r.keyPress(KeyEvent.VK_SHIFT);
+        r.keyPress(KeyEvent.VK_S);
+        r.keyRelease(KeyEvent.VK_S);
+        r.keyRelease(KeyEvent.VK_SHIFT);
+        r.keyPress(KeyEvent.VK_T);
+        r.keyRelease(KeyEvent.VK_T);
+        r.keyPress(KeyEvent.VK_R);
+        r.keyRelease(KeyEvent.VK_R);
+        r.keyPress(KeyEvent.VK_I);
+        r.keyRelease(KeyEvent.VK_I);
+        r.keyPress(KeyEvent.VK_N);
+        r.keyRelease(KeyEvent.VK_N);
+        r.keyPress(KeyEvent.VK_G);
+        r.keyRelease(KeyEvent.VK_G);
+        r.keyPress(KeyEvent.VK_OPEN_BRACKET);
+        r.keyRelease(KeyEvent.VK_OPEN_BRACKET);
+        r.keyPress(KeyEvent.VK_CLOSE_BRACKET);
+        r.keyRelease(KeyEvent.VK_CLOSE_BRACKET);
+        r.keyPress(KeyEvent.VK_SPACE);
+        r.keyRelease(KeyEvent.VK_SPACE);
+        r.keyPress(KeyEvent.VK_A);
+        r.keyRelease(KeyEvent.VK_A);
+        r.keyPress(KeyEvent.VK_R);
+        r.keyRelease(KeyEvent.VK_R);
+        r.keyPress(KeyEvent.VK_G);
+        r.keyRelease(KeyEvent.VK_G);
+        r.keyPress(KeyEvent.VK_S);
+        r.keyRelease(KeyEvent.VK_S);
+        r.keyPress(KeyEvent.VK_SHIFT);
+        r.keyPress(KeyEvent.VK_0);
+        r.keyRelease(KeyEvent.VK_0);
+        r.keyRelease(KeyEvent.VK_SHIFT);
+        r.keyPress(KeyEvent.VK_SPACE);
+        r.keyRelease(KeyEvent.VK_SPACE);
+        r.keyPress(KeyEvent.VK_T);
+        r.keyRelease(KeyEvent.VK_T);
+        r.keyPress(KeyEvent.VK_H);
+        r.keyRelease(KeyEvent.VK_H);
+        r.keyPress(KeyEvent.VK_R);
+        r.keyRelease(KeyEvent.VK_R);
+        r.keyPress(KeyEvent.VK_O);
+        r.keyRelease(KeyEvent.VK_O);
+        r.keyPress(KeyEvent.VK_W);
+        r.keyRelease(KeyEvent.VK_W);
+        r.keyPress(KeyEvent.VK_S);
+        r.keyRelease(KeyEvent.VK_S);
+        r.keyPress(KeyEvent.VK_SPACE);
+        r.keyRelease(KeyEvent.VK_SPACE);
+        r.keyPress(KeyEvent.VK_SHIFT);
+        r.keyPress(KeyEvent.VK_A);
+        r.keyRelease(KeyEvent.VK_A);
+        r.keyRelease(KeyEvent.VK_SHIFT);
+        r.keyPress(KeyEvent.VK_SHIFT);
+        r.keyPress(KeyEvent.VK_W);
+        r.keyRelease(KeyEvent.VK_W);
+        r.keyRelease(KeyEvent.VK_SHIFT);
+        r.keyPress(KeyEvent.VK_SHIFT);
+        r.keyPress(KeyEvent.VK_T);
+        r.keyRelease(KeyEvent.VK_T);
+        r.keyRelease(KeyEvent.VK_SHIFT);
+        r.keyPress(KeyEvent.VK_SHIFT);
+        r.keyPress(KeyEvent.VK_E);
+        r.keyRelease(KeyEvent.VK_E);
+        r.keyRelease(KeyEvent.VK_SHIFT);
+        r.keyPress(KeyEvent.VK_X);
+        r.keyRelease(KeyEvent.VK_X);
+        r.keyPress(KeyEvent.VK_C);
+        r.keyRelease(KeyEvent.VK_C);
+        r.keyPress(KeyEvent.VK_E);
+        r.keyRelease(KeyEvent.VK_E);
+        r.keyPress(KeyEvent.VK_P);
+        r.keyRelease(KeyEvent.VK_P);
+        r.keyPress(KeyEvent.VK_T);
+        r.keyRelease(KeyEvent.VK_T);
+        r.keyPress(KeyEvent.VK_I);
+        r.keyRelease(KeyEvent.VK_I);
+        r.keyPress(KeyEvent.VK_O);
+        r.keyRelease(KeyEvent.VK_O);
+        r.keyPress(KeyEvent.VK_N);
+        r.keyRelease(KeyEvent.VK_N);
+        r.keyPress(KeyEvent.VK_SPACE);
+        r.keyRelease(KeyEvent.VK_SPACE);
+        r.keyPress(KeyEvent.VK_SHIFT);
+        r.keyPress(KeyEvent.VK_OPEN_BRACKET);
+        r.keyRelease(KeyEvent.VK_OPEN_BRACKET);
+        r.keyRelease(KeyEvent.VK_SHIFT);
+        r.keyPress(KeyEvent.VK_ENTER);
+        r.keyRelease(KeyEvent.VK_ENTER);
+    }
+
+    private static void importinit(Robot r) {
+        r.keyPress(KeyEvent.VK_I);
+        r.keyRelease(KeyEvent.VK_I);
+        r.keyPress(KeyEvent.VK_M);
+        r.keyRelease(KeyEvent.VK_M);
+        r.keyPress(KeyEvent.VK_P);
+        r.keyRelease(KeyEvent.VK_P);
+        r.keyPress(KeyEvent.VK_O);
+        r.keyRelease(KeyEvent.VK_O);
+        r.keyPress(KeyEvent.VK_R);
+        r.keyRelease(KeyEvent.VK_R);
+        r.keyPress(KeyEvent.VK_T);
+        r.keyRelease(KeyEvent.VK_T);
+        r.keyPress(KeyEvent.VK_SPACE);
+        r.keyRelease(KeyEvent.VK_SPACE);
+        r.keyPress(KeyEvent.VK_J);
+        r.keyRelease(KeyEvent.VK_J);
+        r.keyPress(KeyEvent.VK_A);
+        r.keyRelease(KeyEvent.VK_A);
+        r.keyPress(KeyEvent.VK_V);
+        r.keyRelease(KeyEvent.VK_V);
+        r.keyPress(KeyEvent.VK_A);
+        r.keyRelease(KeyEvent.VK_A);
+        r.keyPress(KeyEvent.VK_PERIOD);
+        r.keyRelease(KeyEvent.VK_PERIOD);
+    }
+
+    private static void robot(Robot r) {
+        r.keyPress(KeyEvent.VK_SHIFT);
+        r.keyPress(KeyEvent.VK_R);
+        r.keyRelease(KeyEvent.VK_R);
+        r.keyRelease(KeyEvent.VK_SHIFT);
+        r.keyPress(KeyEvent.VK_O);
+        r.keyRelease(KeyEvent.VK_O);
+        r.keyPress(KeyEvent.VK_B);
+        r.keyRelease(KeyEvent.VK_B);
+        r.keyPress(KeyEvent.VK_O);
+        r.keyRelease(KeyEvent.VK_O);
+        r.keyPress(KeyEvent.VK_T);
+        r.keyRelease(KeyEvent.VK_T);
+        r.keyPress(KeyEvent.VK_SPACE);
+        r.keyRelease(KeyEvent.VK_SPACE);
+        r.keyPress(KeyEvent.VK_R);
+        r.keyRelease(KeyEvent.VK_R);
+        r.keyPress(KeyEvent.VK_SPACE);
+        r.keyRelease(KeyEvent.VK_SPACE);
+        r.keyPress(KeyEvent.VK_EQUALS);
+        r.keyRelease(KeyEvent.VK_EQUALS);
+        r.keyPress(KeyEvent.VK_SPACE);
+        r.keyRelease(KeyEvent.VK_SPACE);
+        r.keyPress(KeyEvent.VK_N);
+        r.keyRelease(KeyEvent.VK_N);
+        r.keyPress(KeyEvent.VK_E);
+        r.keyRelease(KeyEvent.VK_E);
+        r.keyPress(KeyEvent.VK_W);
+        r.keyRelease(KeyEvent.VK_W);
+        r.keyPress(KeyEvent.VK_SPACE);
+        r.keyRelease(KeyEvent.VK_SPACE);
+        r.keyPress(KeyEvent.VK_SHIFT);
+        r.keyPress(KeyEvent.VK_R);
+        r.keyRelease(KeyEvent.VK_R);
+        r.keyRelease(KeyEvent.VK_SHIFT);
+        r.keyPress(KeyEvent.VK_O);
+        r.keyRelease(KeyEvent.VK_O);
+        r.keyPress(KeyEvent.VK_B);
+        r.keyRelease(KeyEvent.VK_B);
+        r.keyPress(KeyEvent.VK_O);
+        r.keyRelease(KeyEvent.VK_O);
+        r.keyPress(KeyEvent.VK_T);
+        r.keyRelease(KeyEvent.VK_T);
+        r.keyPress(KeyEvent.VK_SHIFT);
+        r.keyPress(KeyEvent.VK_9);
+        r.keyRelease(KeyEvent.VK_9);
+        r.keyRelease(KeyEvent.VK_SHIFT);
+        r.keyPress(KeyEvent.VK_SHIFT);
+        r.keyPress(KeyEvent.VK_0);
+        r.keyRelease(KeyEvent.VK_0);
+        r.keyRelease(KeyEvent.VK_SHIFT);
+        r.keyPress(KeyEvent.VK_SEMICOLON);
+        r.keyRelease(KeyEvent.VK_SEMICOLON);
+        r.keyPress(KeyEvent.VK_ENTER);
+        r.keyRelease(KeyEvent.VK_ENTER);
+
+        //delay
+        r.keyPress(KeyEvent.VK_R);
+        r.keyRelease(KeyEvent.VK_R);
+        r.keyPress(KeyEvent.VK_PERIOD);
+        r.keyRelease(KeyEvent.VK_PERIOD);
+        r.keyPress(KeyEvent.VK_D);
+        r.keyRelease(KeyEvent.VK_D);
+        r.keyPress(KeyEvent.VK_E);
+        r.keyRelease(KeyEvent.VK_E);
+        r.keyPress(KeyEvent.VK_L);
+        r.keyRelease(KeyEvent.VK_L);
+        r.keyPress(KeyEvent.VK_A);
+        r.keyRelease(KeyEvent.VK_A);
+        r.keyPress(KeyEvent.VK_Y);
+        r.keyRelease(KeyEvent.VK_Y);
+        r.keyPress(KeyEvent.VK_SHIFT);
+        r.keyPress(KeyEvent.VK_9);
+        r.keyRelease(KeyEvent.VK_9);
+        r.keyRelease(KeyEvent.VK_SHIFT);
+        r.keyPress(KeyEvent.VK_1);
+        r.keyRelease(KeyEvent.VK_1);
+        r.keyPress(KeyEvent.VK_0);
+        r.keyRelease(KeyEvent.VK_0);
+        r.keyPress(KeyEvent.VK_0);
+        r.keyRelease(KeyEvent.VK_0);
+        r.keyPress(KeyEvent.VK_0);
+        r.keyRelease(KeyEvent.VK_0);
+        r.keyPress(KeyEvent.VK_0);
+        r.keyRelease(KeyEvent.VK_0);
+        r.keyPress(KeyEvent.VK_SEMICOLON);
+        r.keyRelease(KeyEvent.VK_SEMICOLON);
+        r.keyPress(KeyEvent.VK_ENTER);
+        r.keyRelease(KeyEvent.VK_ENTER);
+
+        //autodelay
+        r.keyPress(KeyEvent.VK_R);
+        r.keyRelease(KeyEvent.VK_R);
+        r.keyPress(KeyEvent.VK_PERIOD);
+        r.keyRelease(KeyEvent.VK_PERIOD);
+        r.keyPress(KeyEvent.VK_S);
+        r.keyRelease(KeyEvent.VK_S);
+        r.keyPress(KeyEvent.VK_E);
+        r.keyRelease(KeyEvent.VK_E);
+        r.keyPress(KeyEvent.VK_T);
+        r.keyRelease(KeyEvent.VK_T);
+        r.keyPress(KeyEvent.VK_SHIFT);
+        r.keyPress(KeyEvent.VK_A);
+        r.keyRelease(KeyEvent.VK_A);
+        r.keyRelease(KeyEvent.VK_SHIFT);
+        r.keyPress(KeyEvent.VK_U);
+        r.keyRelease(KeyEvent.VK_U);
+        r.keyPress(KeyEvent.VK_T);
+        r.keyRelease(KeyEvent.VK_T);
+        r.keyPress(KeyEvent.VK_O);
+        r.keyRelease(KeyEvent.VK_O);
+        r.keyPress(KeyEvent.VK_SHIFT);
+        r.keyPress(KeyEvent.VK_D);
+        r.keyRelease(KeyEvent.VK_D);
+        r.keyRelease(KeyEvent.VK_SHIFT);
+        r.keyPress(KeyEvent.VK_E);
+        r.keyRelease(KeyEvent.VK_E);
+        r.keyPress(KeyEvent.VK_L);
+        r.keyRelease(KeyEvent.VK_L);
+        r.keyPress(KeyEvent.VK_A);
+        r.keyRelease(KeyEvent.VK_A);
+        r.keyPress(KeyEvent.VK_Y);
+        r.keyRelease(KeyEvent.VK_Y);
+        r.keyPress(KeyEvent.VK_SHIFT);
+        r.keyPress(KeyEvent.VK_9);
+        r.keyRelease(KeyEvent.VK_9);
+        r.keyRelease(KeyEvent.VK_SHIFT);
+        r.keyPress(KeyEvent.VK_4);
+        r.keyRelease(KeyEvent.VK_4);
+        r.keyPress(KeyEvent.VK_SEMICOLON);
+        r.keyRelease(KeyEvent.VK_SEMICOLON);
+        r.keyPress(KeyEvent.VK_ENTER);
+        r.keyRelease(KeyEvent.VK_ENTER);
+    }
+
+    private static void fori(String j, Robot r) {
+        r.keyPress(KeyEvent.VK_F);
+        r.keyRelease(KeyEvent.VK_F);
+        r.keyPress(KeyEvent.VK_O);
+        r.keyRelease(KeyEvent.VK_O);
+        r.keyPress(KeyEvent.VK_R);
+        r.keyRelease(KeyEvent.VK_R);
+        r.keyPress(KeyEvent.VK_I);
+        r.keyRelease(KeyEvent.VK_I);
+        r.keyPress(KeyEvent.VK_TAB);
+        r.keyRelease(KeyEvent.VK_TAB);
+        r.keyPress(KeyEvent.VK_TAB);
+        r.keyRelease(KeyEvent.VK_TAB);
+        if (!j.equals("")) {
+            String[] a = j.split("");
+            for (int i = 0; i < a.length; i++) {
+                r.keyPress(48 + Integer.parseInt(a[i]));
+                r.keyRelease(48 + Integer.parseInt(a[i]));
+            }
+        } else {
+            r.keyPress(49);
+            r.keyRelease(49);
+        }
+        r.keyPress(KeyEvent.VK_TAB);
+        r.keyRelease(KeyEvent.VK_TAB);
+    }
+
+    private static void start(Robot r){
+        r.keyPress(KeyEvent.VK_R);
+        r.keyRelease(KeyEvent.VK_R);
+        r.keyPress(KeyEvent.VK_PERIOD);
+        r.keyRelease(KeyEvent.VK_PERIOD);
+        r.keyPress(KeyEvent.VK_K);
+        r.keyRelease(KeyEvent.VK_K);
+        r.keyPress(KeyEvent.VK_E);
+        r.keyRelease(KeyEvent.VK_E);
+        r.keyPress(KeyEvent.VK_Y);
+        r.keyRelease(KeyEvent.VK_Y);
+        r.keyPress(KeyEvent.VK_SHIFT);
+        r.keyPress(KeyEvent.VK_P);
+        r.keyRelease(KeyEvent.VK_P);
+        r.keyRelease(KeyEvent.VK_SHIFT);
+        r.keyPress(KeyEvent.VK_R);
+        r.keyRelease(KeyEvent.VK_R);
+        r.keyPress(KeyEvent.VK_E);
+        r.keyRelease(KeyEvent.VK_E);
+        r.keyPress(KeyEvent.VK_S);
+        r.keyRelease(KeyEvent.VK_S);
+        r.keyPress(KeyEvent.VK_S);
+        r.keyRelease(KeyEvent.VK_S);
+        r.keyPress(KeyEvent.VK_SHIFT);
+        r.keyPress(KeyEvent.VK_9);
+        r.keyRelease(KeyEvent.VK_9);
+        r.keyRelease(KeyEvent.VK_SHIFT);
+        r.keyPress(KeyEvent.VK_SHIFT);
+        r.keyPress(KeyEvent.VK_K);
+        r.keyRelease(KeyEvent.VK_K);
+        r.keyRelease(KeyEvent.VK_SHIFT);
+        r.keyPress(KeyEvent.VK_E);
+        r.keyRelease(KeyEvent.VK_E);
+        r.keyPress(KeyEvent.VK_Y);
+        r.keyRelease(KeyEvent.VK_Y);
+        r.keyPress(KeyEvent.VK_SHIFT);
+        r.keyPress(KeyEvent.VK_E);
+        r.keyRelease(KeyEvent.VK_E);
+        r.keyRelease(KeyEvent.VK_SHIFT);
+        r.keyPress(KeyEvent.VK_V);
+        r.keyRelease(KeyEvent.VK_V);
+        r.keyPress(KeyEvent.VK_E);
+        r.keyRelease(KeyEvent.VK_E);
+        r.keyPress(KeyEvent.VK_N);
+        r.keyRelease(KeyEvent.VK_N);
+        r.keyPress(KeyEvent.VK_T);
+        r.keyRelease(KeyEvent.VK_T);
+        r.keyPress(KeyEvent.VK_PERIOD);
+        r.keyRelease(KeyEvent.VK_PERIOD);
+        r.keyPress(KeyEvent.VK_SHIFT);
+        r.keyPress(KeyEvent.VK_V);
+        r.keyRelease(KeyEvent.VK_V);
+        r.keyRelease(KeyEvent.VK_SHIFT);
+        r.keyPress(KeyEvent.VK_SHIFT);
+        r.keyPress(KeyEvent.VK_K);
+        r.keyRelease(KeyEvent.VK_K);
+        r.keyRelease(KeyEvent.VK_SHIFT);
+        r.keyPress(KeyEvent.VK_SHIFT);
+        r.keyPress(KeyEvent.VK_MINUS);
+        r.keyRelease(KeyEvent.VK_MINUS);
+        r.keyRelease(KeyEvent.VK_SHIFT);
+    }
+
+    private static void end(Robot r){
+        r.keyPress(KeyEvent.VK_R);
+        r.keyRelease(KeyEvent.VK_R);
+        r.keyPress(KeyEvent.VK_PERIOD);
+        r.keyRelease(KeyEvent.VK_PERIOD);
+        r.keyPress(KeyEvent.VK_K);
+        r.keyRelease(KeyEvent.VK_K);
+        r.keyPress(KeyEvent.VK_E);
+        r.keyRelease(KeyEvent.VK_E);
+        r.keyPress(KeyEvent.VK_Y);
+        r.keyRelease(KeyEvent.VK_Y);
+        r.keyPress(KeyEvent.VK_SHIFT);
+        r.keyPress(KeyEvent.VK_R);
+        r.keyRelease(KeyEvent.VK_R);
+        r.keyRelease(KeyEvent.VK_SHIFT);
+        r.keyPress(KeyEvent.VK_E);
+        r.keyRelease(KeyEvent.VK_E);
+        r.keyPress(KeyEvent.VK_L);
+        r.keyRelease(KeyEvent.VK_L);
+        r.keyPress(KeyEvent.VK_E);
+        r.keyRelease(KeyEvent.VK_E);
+        r.keyPress(KeyEvent.VK_A);
+        r.keyRelease(KeyEvent.VK_A);
+        r.keyPress(KeyEvent.VK_S);
+        r.keyRelease(KeyEvent.VK_S);
+        r.keyPress(KeyEvent.VK_E);
+        r.keyRelease(KeyEvent.VK_E);
+        r.keyPress(KeyEvent.VK_SHIFT);
+        r.keyPress(KeyEvent.VK_9);
+        r.keyRelease(KeyEvent.VK_9);
+        r.keyRelease(KeyEvent.VK_SHIFT);
+        r.keyPress(KeyEvent.VK_SHIFT);
+        r.keyPress(KeyEvent.VK_K);
+        r.keyRelease(KeyEvent.VK_K);
+        r.keyRelease(KeyEvent.VK_SHIFT);
+        r.keyPress(KeyEvent.VK_E);
+        r.keyRelease(KeyEvent.VK_E);
+        r.keyPress(KeyEvent.VK_Y);
+        r.keyRelease(KeyEvent.VK_Y);
+        r.keyPress(KeyEvent.VK_SHIFT);
+        r.keyPress(KeyEvent.VK_E);
+        r.keyRelease(KeyEvent.VK_E);
+        r.keyRelease(KeyEvent.VK_SHIFT);
+        r.keyPress(KeyEvent.VK_V);
+        r.keyRelease(KeyEvent.VK_V);
+        r.keyPress(KeyEvent.VK_E);
+        r.keyRelease(KeyEvent.VK_E);
+        r.keyPress(KeyEvent.VK_N);
+        r.keyRelease(KeyEvent.VK_N);
+        r.keyPress(KeyEvent.VK_T);
+        r.keyRelease(KeyEvent.VK_T);
+        r.keyPress(KeyEvent.VK_PERIOD);
+        r.keyRelease(KeyEvent.VK_PERIOD);
+        r.keyPress(KeyEvent.VK_SHIFT);
+        r.keyPress(KeyEvent.VK_V);
+        r.keyRelease(KeyEvent.VK_V);
+        r.keyRelease(KeyEvent.VK_SHIFT);
+        r.keyPress(KeyEvent.VK_SHIFT);
+        r.keyPress(KeyEvent.VK_K);
+        r.keyRelease(KeyEvent.VK_K);
+        r.keyRelease(KeyEvent.VK_SHIFT);
+        r.keyPress(KeyEvent.VK_SHIFT);
+        r.keyPress(KeyEvent.VK_MINUS);
+        r.keyRelease(KeyEvent.VK_MINUS);
+        r.keyRelease(KeyEvent.VK_SHIFT);
+    }
+
+    private static void type(String a, Robot r, Boolean tf){
+        switch (a) {
+            case "a":
+                r.keyPress(KeyEvent.VK_SHIFT);
+                r.keyPress(KeyEvent.VK_A);
+                r.keyRelease(KeyEvent.VK_A);
+                r.keyRelease(KeyEvent.VK_SHIFT);
+                break;
+            case "A":
+                if (tf) {
+                    type("s", r, true);
+                    type("h", r, true);
+                    type("i", r, true);
+                    type("f", r, true);
+                    type("t", r, true);
+                    r.keyPress(KeyEvent.VK_SEMICOLON);
+                    r.keyRelease(KeyEvent.VK_SEMICOLON);
+                    r.keyPress(KeyEvent.VK_ENTER);
+                    r.keyRelease(KeyEvent.VK_ENTER);
+
+                    start(r);
+                    type("a", r, true);
+                    r.keyPress(KeyEvent.VK_SEMICOLON);
+                    r.keyRelease(KeyEvent.VK_SEMICOLON);
+                    r.keyPress(KeyEvent.VK_ENTER);
+                    r.keyRelease(KeyEvent.VK_ENTER);
+
+                    end(r);
+                    type("a", r, true);
+                } else {
+                    type("s", r, true);
+                    type("h", r, true);
+                    type("i", r, true);
+                    type("f", r, true);
+                    type("t", r, true);
+                }
+                break;
+            case "b":
+                r.keyPress(KeyEvent.VK_SHIFT);
+                r.keyPress(KeyEvent.VK_B);
+                r.keyRelease(KeyEvent.VK_B);
+                r.keyRelease(KeyEvent.VK_SHIFT);
+                break;
+            case "B":
+                if (tf) {
+                    type("s", r, true);
+                    type("h", r, true);
+                    type("i", r, true);
+                    type("f", r, true);
+                    type("t", r, true);
+                    r.keyPress(KeyEvent.VK_SEMICOLON);
+                    r.keyRelease(KeyEvent.VK_SEMICOLON);
+                    r.keyPress(KeyEvent.VK_ENTER);
+                    r.keyRelease(KeyEvent.VK_ENTER);
+
+                    start(r);
+                    type("b", r, true);
+                    r.keyPress(KeyEvent.VK_SEMICOLON);
+                    r.keyRelease(KeyEvent.VK_SEMICOLON);
+                    r.keyPress(KeyEvent.VK_ENTER);
+                    r.keyRelease(KeyEvent.VK_ENTER);
+
+                    end(r);
+                    type("b", r, true);
+                } else {
+                    type("s", r, true);
+                    type("h", r, true);
+                    type("i", r, true);
+                    type("f", r, true);
+                    type("t", r, true);
+                }
+                break;
+            case "c":
+                r.keyPress(KeyEvent.VK_SHIFT);
+                r.keyPress(KeyEvent.VK_C);
+                r.keyRelease(KeyEvent.VK_C);
+                r.keyRelease(KeyEvent.VK_SHIFT);
+                break;
+            case "C":
+                if (tf) {
+                    type("s", r, true);
+                    type("h", r, true);
+                    type("i", r, true);
+                    type("f", r, true);
+                    type("t", r, true);
+                    r.keyPress(KeyEvent.VK_SEMICOLON);
+                    r.keyRelease(KeyEvent.VK_SEMICOLON);
+                    r.keyPress(KeyEvent.VK_ENTER);
+                    r.keyRelease(KeyEvent.VK_ENTER);
+
+                    start(r);
+                    type("c", r, true);
+                    r.keyPress(KeyEvent.VK_SEMICOLON);
+                    r.keyRelease(KeyEvent.VK_SEMICOLON);
+                    r.keyPress(KeyEvent.VK_ENTER);
+                    r.keyRelease(KeyEvent.VK_ENTER);
+
+                    end(r);
+                    type("c", r, true);
+                } else {
+                    type("s", r, true);
+                    type("h", r, true);
+                    type("i", r, true);
+                    type("f", r, true);
+                    type("t", r, true);
+                }
+                break;
+            case "d":
+                r.keyPress(KeyEvent.VK_SHIFT);
+                r.keyPress(KeyEvent.VK_D);
+                r.keyRelease(KeyEvent.VK_D);
+                r.keyRelease(KeyEvent.VK_SHIFT);
+                break;
+            case "D":
+                if (tf) {
+                    type("s", r, true);
+                    type("h", r, true);
+                    type("i", r, true);
+                    type("f", r, true);
+                    type("t", r, true);
+                    r.keyPress(KeyEvent.VK_SEMICOLON);
+                    r.keyRelease(KeyEvent.VK_SEMICOLON);
+                    r.keyPress(KeyEvent.VK_ENTER);
+                    r.keyRelease(KeyEvent.VK_ENTER);
+
+                    start(r);
+                    type("d", r, true);
+                    r.keyPress(KeyEvent.VK_SEMICOLON);
+                    r.keyRelease(KeyEvent.VK_SEMICOLON);
+                    r.keyPress(KeyEvent.VK_ENTER);
+                    r.keyRelease(KeyEvent.VK_ENTER);
+
+                    end(r);
+                    type("d", r, true);
+                } else {
+                    type("s", r, true);
+                    type("h", r, true);
+                    type("i", r, true);
+                    type("f", r, true);
+                    type("t", r, true);
+                }
+                break;
+            case "e":
+                r.keyPress(KeyEvent.VK_SHIFT);
+                r.keyPress(KeyEvent.VK_E);
+                r.keyRelease(KeyEvent.VK_E);
+                r.keyRelease(KeyEvent.VK_SHIFT);
+                break;
+            case "E":
+                if (tf) {
+                    type("s", r, true);
+                    type("h", r, true);
+                    type("i", r, true);
+                    type("f", r, true);
+                    type("t", r, true);
+                    r.keyPress(KeyEvent.VK_SEMICOLON);
+                    r.keyRelease(KeyEvent.VK_SEMICOLON);
+                    r.keyPress(KeyEvent.VK_ENTER);
+                    r.keyRelease(KeyEvent.VK_ENTER);
+
+                    start(r);
+                    type("e", r, true);
+                    r.keyPress(KeyEvent.VK_SEMICOLON);
+                    r.keyRelease(KeyEvent.VK_SEMICOLON);
+                    r.keyPress(KeyEvent.VK_ENTER);
+                    r.keyRelease(KeyEvent.VK_ENTER);
+
+                    end(r);
+                    type("e", r, true);
+                } else {
+                    type("s", r, true);
+                    type("h", r, true);
+                    type("i", r, true);
+                    type("f", r, true);
+                    type("t", r, true);
+                }
+                break;
+            case "f":
+                r.keyPress(KeyEvent.VK_SHIFT);
+                r.keyPress(KeyEvent.VK_F);
+                r.keyRelease(KeyEvent.VK_F);
+                r.keyRelease(KeyEvent.VK_SHIFT);
+                break;
+            case "F":
+                if (tf) {
+                    type("s", r, true);
+                    type("h", r, true);
+                    type("i", r, true);
+                    type("f", r, true);
+                    type("t", r, true);
+                    r.keyPress(KeyEvent.VK_SEMICOLON);
+                    r.keyRelease(KeyEvent.VK_SEMICOLON);
+                    r.keyPress(KeyEvent.VK_ENTER);
+                    r.keyRelease(KeyEvent.VK_ENTER);
+
+                    start(r);
+                    type("f", r, true);
+                    r.keyPress(KeyEvent.VK_SEMICOLON);
+                    r.keyRelease(KeyEvent.VK_SEMICOLON);
+                    r.keyPress(KeyEvent.VK_ENTER);
+                    r.keyRelease(KeyEvent.VK_ENTER);
+
+                    end(r);
+                    type("f", r, true);
+                } else {
+                    type("s", r, true);
+                    type("h", r, true);
+                    type("i", r, true);
+                    type("f", r, true);
+                    type("t", r, true);
+                }
+                break;
+            case "g":
+                r.keyPress(KeyEvent.VK_SHIFT);
+                r.keyPress(KeyEvent.VK_G);
+                r.keyRelease(KeyEvent.VK_G);
+                r.keyRelease(KeyEvent.VK_SHIFT);
+                break;
+            case "G":
+                if (tf) {
+                    type("s", r, true);
+                    type("h", r, true);
+                    type("i", r, true);
+                    type("f", r, true);
+                    type("t", r, true);
+                    r.keyPress(KeyEvent.VK_SEMICOLON);
+                    r.keyRelease(KeyEvent.VK_SEMICOLON);
+                    r.keyPress(KeyEvent.VK_ENTER);
+                    r.keyRelease(KeyEvent.VK_ENTER);
+
+                    start(r);
+                    type("g", r, true);
+                    r.keyPress(KeyEvent.VK_SEMICOLON);
+                    r.keyRelease(KeyEvent.VK_SEMICOLON);
+                    r.keyPress(KeyEvent.VK_ENTER);
+                    r.keyRelease(KeyEvent.VK_ENTER);
+
+                    end(r);
+                    type("g", r, true);
+                } else {
+                    type("s", r, true);
+                    type("h", r, true);
+                    type("i", r, true);
+                    type("f", r, true);
+                    type("t", r, true);
+                }
+                break;
+            case "h":
+                r.keyPress(KeyEvent.VK_SHIFT);
+                r.keyPress(KeyEvent.VK_H);
+                r.keyRelease(KeyEvent.VK_H);
+                r.keyRelease(KeyEvent.VK_SHIFT);
+                break;
+            case "H":
+                if (tf) {
+                    type("s", r, true);
+                    type("h", r, true);
+                    type("i", r, true);
+                    type("f", r, true);
+                    type("t", r, true);
+                    r.keyPress(KeyEvent.VK_SEMICOLON);
+                    r.keyRelease(KeyEvent.VK_SEMICOLON);
+                    r.keyPress(KeyEvent.VK_ENTER);
+                    r.keyRelease(KeyEvent.VK_ENTER);
+
+                    start(r);
+                    type("h", r, true);
+                    r.keyPress(KeyEvent.VK_SEMICOLON);
+                    r.keyRelease(KeyEvent.VK_SEMICOLON);
+                    r.keyPress(KeyEvent.VK_ENTER);
+                    r.keyRelease(KeyEvent.VK_ENTER);
+
+                    end(r);
+                    type("h", r, true);
+                } else {
+                    type("s", r, true);
+                    type("h", r, true);
+                    type("i", r, true);
+                    type("f", r, true);
+                    type("t", r, true);
+                }
+                break;
+            case "i":
+                r.keyPress(KeyEvent.VK_SHIFT);
+                r.keyPress(KeyEvent.VK_I);
+                r.keyRelease(KeyEvent.VK_I);
+                r.keyRelease(KeyEvent.VK_SHIFT);
+                break;
+            case "I":
+                if (tf) {
+                    type("s", r, true);
+                    type("h", r, true);
+                    type("i", r, true);
+                    type("f", r, true);
+                    type("t", r, true);
+                    r.keyPress(KeyEvent.VK_SEMICOLON);
+                    r.keyRelease(KeyEvent.VK_SEMICOLON);
+                    r.keyPress(KeyEvent.VK_ENTER);
+                    r.keyRelease(KeyEvent.VK_ENTER);
+
+                    start(r);
+                    type("i", r, true);
+                    r.keyPress(KeyEvent.VK_SEMICOLON);
+                    r.keyRelease(KeyEvent.VK_SEMICOLON);
+                    r.keyPress(KeyEvent.VK_ENTER);
+                    r.keyRelease(KeyEvent.VK_ENTER);
+
+                    end(r);
+                    type("i", r, true);
+                } else {
+                    type("s", r, true);
+                    type("h", r, true);
+                    type("i", r, true);
+                    type("f", r, true);
+                    type("t", r, true);
+                }
+                break;
+            case "j":
+                r.keyPress(KeyEvent.VK_SHIFT);
+                r.keyPress(KeyEvent.VK_J);
+                r.keyRelease(KeyEvent.VK_J);
+                r.keyRelease(KeyEvent.VK_SHIFT);
+                break;
+            case "J":
+                if (tf) {
+                    type("s", r, true);
+                    type("h", r, true);
+                    type("i", r, true);
+                    type("f", r, true);
+                    type("t", r, true);
+                    r.keyPress(KeyEvent.VK_SEMICOLON);
+                    r.keyRelease(KeyEvent.VK_SEMICOLON);
+                    r.keyPress(KeyEvent.VK_ENTER);
+                    r.keyRelease(KeyEvent.VK_ENTER);
+
+                    start(r);
+                    type("j", r, true);
+                    r.keyPress(KeyEvent.VK_SEMICOLON);
+                    r.keyRelease(KeyEvent.VK_SEMICOLON);
+                    r.keyPress(KeyEvent.VK_ENTER);
+                    r.keyRelease(KeyEvent.VK_ENTER);
+
+                    end(r);
+                    type("j", r, true);
+                } else {
+                    type("s", r, true);
+                    type("h", r, true);
+                    type("i", r, true);
+                    type("f", r, true);
+                    type("t", r, true);
+                }
+                break;
+            case "k":
+                r.keyPress(KeyEvent.VK_SHIFT);
+                r.keyPress(KeyEvent.VK_K);
+                r.keyRelease(KeyEvent.VK_K);
+                r.keyRelease(KeyEvent.VK_SHIFT);
+                break;
+            case "K":
+                if (tf) {
+                    type("s", r, true);
+                    type("h", r, true);
+                    type("i", r, true);
+                    type("f", r, true);
+                    type("t", r, true);
+                    r.keyPress(KeyEvent.VK_SEMICOLON);
+                    r.keyRelease(KeyEvent.VK_SEMICOLON);
+                    r.keyPress(KeyEvent.VK_ENTER);
+                    r.keyRelease(KeyEvent.VK_ENTER);
+
+                    start(r);
+                    type("k", r, true);
+                    r.keyPress(KeyEvent.VK_SEMICOLON);
+                    r.keyRelease(KeyEvent.VK_SEMICOLON);
+                    r.keyPress(KeyEvent.VK_ENTER);
+                    r.keyRelease(KeyEvent.VK_ENTER);
+
+                    end(r);
+                    type("k", r, true);
+                } else {
+                    type("s", r, true);
+                    type("h", r, true);
+                    type("i", r, true);
+                    type("f", r, true);
+                    type("t", r, true);
+                }
+                break;
+            case "l":
+                r.keyPress(KeyEvent.VK_SHIFT);
+                r.keyPress(KeyEvent.VK_L);
+                r.keyRelease(KeyEvent.VK_L);
+                r.keyRelease(KeyEvent.VK_SHIFT);
+                break;
+            case "L":
+                if (tf) {
+                    type("s", r, true);
+                    type("h", r, true);
+                    type("i", r, true);
+                    type("f", r, true);
+                    type("t", r, true);
+                    r.keyPress(KeyEvent.VK_SEMICOLON);
+                    r.keyRelease(KeyEvent.VK_SEMICOLON);
+                    r.keyPress(KeyEvent.VK_ENTER);
+                    r.keyRelease(KeyEvent.VK_ENTER);
+
+                    start(r);
+                    type("l", r, true);
+                    r.keyPress(KeyEvent.VK_SEMICOLON);
+                    r.keyRelease(KeyEvent.VK_SEMICOLON);
+                    r.keyPress(KeyEvent.VK_ENTER);
+                    r.keyRelease(KeyEvent.VK_ENTER);
+
+                    end(r);
+                    type("l", r, true);
+                } else {
+                    type("s", r, true);
+                    type("h", r, true);
+                    type("i", r, true);
+                    type("f", r, true);
+                    type("t", r, true);
+                }
+                break;
+            case "m":
+                r.keyPress(KeyEvent.VK_SHIFT);
+                r.keyPress(KeyEvent.VK_M);
+                r.keyRelease(KeyEvent.VK_M);
+                r.keyRelease(KeyEvent.VK_SHIFT);
+                break;
+            case "M":
+                if (tf) {
+                    type("s", r, true);
+                    type("h", r, true);
+                    type("i", r, true);
+                    type("f", r, true);
+                    type("t", r, true);
+                    r.keyPress(KeyEvent.VK_SEMICOLON);
+                    r.keyRelease(KeyEvent.VK_SEMICOLON);
+                    r.keyPress(KeyEvent.VK_ENTER);
+                    r.keyRelease(KeyEvent.VK_ENTER);
+
+                    start(r);
+                    type("m", r, true);
+                    r.keyPress(KeyEvent.VK_SEMICOLON);
+                    r.keyRelease(KeyEvent.VK_SEMICOLON);
+                    r.keyPress(KeyEvent.VK_ENTER);
+                    r.keyRelease(KeyEvent.VK_ENTER);
+
+                    end(r);
+                    type("m", r, true);
+                } else {
+                    type("s", r, true);
+                    type("h", r, true);
+                    type("i", r, true);
+                    type("f", r, true);
+                    type("t", r, true);
+                }
+                break;
+            case "n":
+                r.keyPress(KeyEvent.VK_SHIFT);
+                r.keyPress(KeyEvent.VK_N);
+                r.keyRelease(KeyEvent.VK_N);
+                r.keyRelease(KeyEvent.VK_SHIFT);
+                break;
+            case "N":
+                if (tf) {
+                    type("s", r, true);
+                    type("h", r, true);
+                    type("i", r, true);
+                    type("f", r, true);
+                    type("t", r, true);
+                    r.keyPress(KeyEvent.VK_SEMICOLON);
+                    r.keyRelease(KeyEvent.VK_SEMICOLON);
+                    r.keyPress(KeyEvent.VK_ENTER);
+                    r.keyRelease(KeyEvent.VK_ENTER);
+
+                    start(r);
+                    type("n", r, true);
+                    r.keyPress(KeyEvent.VK_SEMICOLON);
+                    r.keyRelease(KeyEvent.VK_SEMICOLON);
+                    r.keyPress(KeyEvent.VK_ENTER);
+                    r.keyRelease(KeyEvent.VK_ENTER);
+
+                    end(r);
+                    type("n", r, true);
+                } else {
+                    type("s", r, true);
+                    type("h", r, true);
+                    type("i", r, true);
+                    type("f", r, true);
+                    type("t", r, true);
+                }
+                break;
+            case "o":
+                r.keyPress(KeyEvent.VK_SHIFT);
+                r.keyPress(KeyEvent.VK_O);
+                r.keyRelease(KeyEvent.VK_O);
+                r.keyRelease(KeyEvent.VK_SHIFT);
+                break;
+            case "O":
+                if (tf) {
+                    type("s", r, true);
+                    type("h", r, true);
+                    type("i", r, true);
+                    type("f", r, true);
+                    type("t", r, true);
+                    r.keyPress(KeyEvent.VK_SEMICOLON);
+                    r.keyRelease(KeyEvent.VK_SEMICOLON);
+                    r.keyPress(KeyEvent.VK_ENTER);
+                    r.keyRelease(KeyEvent.VK_ENTER);
+
+                    start(r);
+                    type("o", r, true);
+                    r.keyPress(KeyEvent.VK_SEMICOLON);
+                    r.keyRelease(KeyEvent.VK_SEMICOLON);
+                    r.keyPress(KeyEvent.VK_ENTER);
+                    r.keyRelease(KeyEvent.VK_ENTER);
+
+                    end(r);
+                    type("o", r, true);
+                } else {
+                    type("s", r, true);
+                    type("h", r, true);
+                    type("i", r, true);
+                    type("f", r, true);
+                    type("t", r, true);
+                }
+                break;
+            case "p":
+                r.keyPress(KeyEvent.VK_SHIFT);
+                r.keyPress(KeyEvent.VK_P);
+                r.keyRelease(KeyEvent.VK_P);
+                r.keyRelease(KeyEvent.VK_SHIFT);
+                break;
+            case "P":
+                if (tf) {
+                    type("s", r, true);
+                    type("h", r, true);
+                    type("i", r, true);
+                    type("f", r, true);
+                    type("t", r, true);
+                    r.keyPress(KeyEvent.VK_SEMICOLON);
+                    r.keyRelease(KeyEvent.VK_SEMICOLON);
+                    r.keyPress(KeyEvent.VK_ENTER);
+                    r.keyRelease(KeyEvent.VK_ENTER);
+
+                    start(r);
+                    type("p", r, true);
+                    r.keyPress(KeyEvent.VK_SEMICOLON);
+                    r.keyRelease(KeyEvent.VK_SEMICOLON);
+                    r.keyPress(KeyEvent.VK_ENTER);
+                    r.keyRelease(KeyEvent.VK_ENTER);
+
+                    end(r);
+                    type("p", r, true);
+                } else {
+                    type("s", r, true);
+                    type("h", r, true);
+                    type("i", r, true);
+                    type("f", r, true);
+                    type("t", r, true);
+                }
+                break;
+            case "q":
+                r.keyPress(KeyEvent.VK_SHIFT);
+                r.keyPress(KeyEvent.VK_Q);
+                r.keyRelease(KeyEvent.VK_Q);
+                r.keyRelease(KeyEvent.VK_SHIFT);
+                break;
+            case "Q":
+                if (tf) {
+                    type("s", r, true);
+                    type("h", r, true);
+                    type("i", r, true);
+                    type("f", r, true);
+                    type("t", r, true);
+                    r.keyPress(KeyEvent.VK_SEMICOLON);
+                    r.keyRelease(KeyEvent.VK_SEMICOLON);
+                    r.keyPress(KeyEvent.VK_ENTER);
+                    r.keyRelease(KeyEvent.VK_ENTER);
+
+                    start(r);
+                    type("q", r, true);
+                    r.keyPress(KeyEvent.VK_SEMICOLON);
+                    r.keyRelease(KeyEvent.VK_SEMICOLON);
+                    r.keyPress(KeyEvent.VK_ENTER);
+                    r.keyRelease(KeyEvent.VK_ENTER);
+
+                    end(r);
+                    type("q", r, true);
+                } else {
+                    type("s", r, true);
+                    type("h", r, true);
+                    type("i", r, true);
+                    type("f", r, true);
+                    type("t", r, true);
+                }
+                break;
+            case "r":
+                r.keyPress(KeyEvent.VK_SHIFT);
+                r.keyPress(KeyEvent.VK_R);
+                r.keyRelease(KeyEvent.VK_R);
+                r.keyRelease(KeyEvent.VK_SHIFT);
+                break;
+            case "R":
+                if (tf) {
+                    type("s", r, true);
+                    type("h", r, true);
+                    type("i", r, true);
+                    type("f", r, true);
+                    type("t", r, true);
+                    r.keyPress(KeyEvent.VK_SEMICOLON);
+                    r.keyRelease(KeyEvent.VK_SEMICOLON);
+                    r.keyPress(KeyEvent.VK_ENTER);
+                    r.keyRelease(KeyEvent.VK_ENTER);
+
+                    start(r);
+                    type("r", r, true);
+                    r.keyPress(KeyEvent.VK_SEMICOLON);
+                    r.keyRelease(KeyEvent.VK_SEMICOLON);
+                    r.keyPress(KeyEvent.VK_ENTER);
+                    r.keyRelease(KeyEvent.VK_ENTER);
+
+                    end(r);
+                    type("r", r, true);
+                } else {
+                    type("s", r, true);
+                    type("h", r, true);
+                    type("i", r, true);
+                    type("f", r, true);
+                    type("t", r, true);
+                }
+                break;
+            case "s":
+                r.keyPress(KeyEvent.VK_SHIFT);
+                r.keyPress(KeyEvent.VK_S);
+                r.keyRelease(KeyEvent.VK_S);
+                r.keyRelease(KeyEvent.VK_SHIFT);
+                break;
+            case "S":
+                if (tf) {
+                    type("s", r, true);
+                    type("h", r, true);
+                    type("i", r, true);
+                    type("f", r, true);
+                    type("t", r, true);
+                    r.keyPress(KeyEvent.VK_SEMICOLON);
+                    r.keyRelease(KeyEvent.VK_SEMICOLON);
+                    r.keyPress(KeyEvent.VK_ENTER);
+                    r.keyRelease(KeyEvent.VK_ENTER);
+
+                    start(r);
+                    type("s", r, true);
+                    r.keyPress(KeyEvent.VK_SEMICOLON);
+                    r.keyRelease(KeyEvent.VK_SEMICOLON);
+                    r.keyPress(KeyEvent.VK_ENTER);
+                    r.keyRelease(KeyEvent.VK_ENTER);
+
+                    end(r);
+                    type("s", r, true);
+                } else {
+                    type("s", r, true);
+                    type("h", r, true);
+                    type("i", r, true);
+                    type("f", r, true);
+                    type("t", r, true);
+                }
+                break;
+            case "t":
+                r.keyPress(KeyEvent.VK_SHIFT);
+                r.keyPress(KeyEvent.VK_T);
+                r.keyRelease(KeyEvent.VK_T);
+                r.keyRelease(KeyEvent.VK_SHIFT);
+                break;
+            case "T":
+                if (tf) {
+                    type("s", r, true);
+                    type("h", r, true);
+                    type("i", r, true);
+                    type("f", r, true);
+                    type("t", r, true);
+                    r.keyPress(KeyEvent.VK_SEMICOLON);
+                    r.keyRelease(KeyEvent.VK_SEMICOLON);
+                    r.keyPress(KeyEvent.VK_ENTER);
+                    r.keyRelease(KeyEvent.VK_ENTER);
+
+                    start(r);
+                    type("t", r, true);
+                    r.keyPress(KeyEvent.VK_SEMICOLON);
+                    r.keyRelease(KeyEvent.VK_SEMICOLON);
+                    r.keyPress(KeyEvent.VK_ENTER);
+                    r.keyRelease(KeyEvent.VK_ENTER);
+
+                    end(r);
+                    type("t", r, true);
+                } else {
+                    type("s", r, true);
+                    type("h", r, true);
+                    type("i", r, true);
+                    type("f", r, true);
+                    type("t", r, true);
+                }
+                break;
+            case "u":
+                r.keyPress(KeyEvent.VK_SHIFT);
+                r.keyPress(KeyEvent.VK_U);
+                r.keyRelease(KeyEvent.VK_U);
+                r.keyRelease(KeyEvent.VK_SHIFT);
+                break;
+            case "U":
+                if (tf) {
+                    type("s", r, true);
+                    type("h", r, true);
+                    type("i", r, true);
+                    type("f", r, true);
+                    type("t", r, true);
+                    r.keyPress(KeyEvent.VK_SEMICOLON);
+                    r.keyRelease(KeyEvent.VK_SEMICOLON);
+                    r.keyPress(KeyEvent.VK_ENTER);
+                    r.keyRelease(KeyEvent.VK_ENTER);
+
+                    start(r);
+                    type("u", r, true);
+                    r.keyPress(KeyEvent.VK_SEMICOLON);
+                    r.keyRelease(KeyEvent.VK_SEMICOLON);
+                    r.keyPress(KeyEvent.VK_ENTER);
+                    r.keyRelease(KeyEvent.VK_ENTER);
+
+                    end(r);
+                    type("u", r, true);
+                } else {
+                    type("s", r, true);
+                    type("h", r, true);
+                    type("i", r, true);
+                    type("f", r, true);
+                    type("t", r, true);
+                }
+                break;
+            case "v":
+                r.keyPress(KeyEvent.VK_SHIFT);
+                r.keyPress(KeyEvent.VK_V);
+                r.keyRelease(KeyEvent.VK_V);
+                r.keyRelease(KeyEvent.VK_SHIFT);
+                break;
+            case "V":
+                if (tf) {
+                    type("s", r, true);
+                    type("h", r, true);
+                    type("i", r, true);
+                    type("f", r, true);
+                    type("t", r, true);
+                    r.keyPress(KeyEvent.VK_SEMICOLON);
+                    r.keyRelease(KeyEvent.VK_SEMICOLON);
+                    r.keyPress(KeyEvent.VK_ENTER);
+                    r.keyRelease(KeyEvent.VK_ENTER);
+
+                    start(r);
+                    type("v", r, true);
+                    r.keyPress(KeyEvent.VK_SEMICOLON);
+                    r.keyRelease(KeyEvent.VK_SEMICOLON);
+                    r.keyPress(KeyEvent.VK_ENTER);
+                    r.keyRelease(KeyEvent.VK_ENTER);
+
+                    end(r);
+                    type("v", r, true);
+                } else {
+                    type("s", r, true);
+                    type("h", r, true);
+                    type("i", r, true);
+                    type("f", r, true);
+                    type("t", r, true);
+                }
+                break;
+            case "w":
+                r.keyPress(KeyEvent.VK_SHIFT);
+                r.keyPress(KeyEvent.VK_W);
+                r.keyRelease(KeyEvent.VK_W);
+                r.keyRelease(KeyEvent.VK_SHIFT);
+                break;
+            case "W":
+                if (tf) {
+                    type("s", r, true);
+                    type("h", r, true);
+                    type("i", r, true);
+                    type("f", r, true);
+                    type("t", r, true);
+                    r.keyPress(KeyEvent.VK_SEMICOLON);
+                    r.keyRelease(KeyEvent.VK_SEMICOLON);
+                    r.keyPress(KeyEvent.VK_ENTER);
+                    r.keyRelease(KeyEvent.VK_ENTER);
+
+                    start(r);
+                    type("w", r, true);
+                    r.keyPress(KeyEvent.VK_SEMICOLON);
+                    r.keyRelease(KeyEvent.VK_SEMICOLON);
+                    r.keyPress(KeyEvent.VK_ENTER);
+                    r.keyRelease(KeyEvent.VK_ENTER);
+
+                    end(r);
+                    type("w", r, true);
+                } else {
+                    type("s", r, true);
+                    type("h", r, true);
+                    type("i", r, true);
+                    type("f", r, true);
+                    type("t", r, true);
+                }
+                break;
+            case "x":
+                r.keyPress(KeyEvent.VK_SHIFT);
+                r.keyPress(KeyEvent.VK_X);
+                r.keyRelease(KeyEvent.VK_X);
+                r.keyRelease(KeyEvent.VK_SHIFT);
+                break;
+            case "X":
+                if (tf) {
+                    type("s", r, true);
+                    type("h", r, true);
+                    type("i", r, true);
+                    type("f", r, true);
+                    type("t", r, true);
+                    r.keyPress(KeyEvent.VK_SEMICOLON);
+                    r.keyRelease(KeyEvent.VK_SEMICOLON);
+                    r.keyPress(KeyEvent.VK_ENTER);
+                    r.keyRelease(KeyEvent.VK_ENTER);
+
+                    start(r);
+                    type("x", r, true);
+                    r.keyPress(KeyEvent.VK_SEMICOLON);
+                    r.keyRelease(KeyEvent.VK_SEMICOLON);
+                    r.keyPress(KeyEvent.VK_ENTER);
+                    r.keyRelease(KeyEvent.VK_ENTER);
+
+                    end(r);
+                    type("x", r, true);
+                } else {
+                    type("s", r, true);
+                    type("h", r, true);
+                    type("i", r, true);
+                    type("f", r, true);
+                    type("t", r, true);
+                }
+                break;
+            case "y":
+                r.keyPress(KeyEvent.VK_SHIFT);
+                r.keyPress(KeyEvent.VK_Y);
+                r.keyRelease(KeyEvent.VK_Y);
+                r.keyRelease(KeyEvent.VK_SHIFT);
+                break;
+            case "Y":
+                if (tf) {
+                    type("s", r, true);
+                    type("h", r, true);
+                    type("i", r, true);
+                    type("f", r, true);
+                    type("t", r, true);
+                    r.keyPress(KeyEvent.VK_SEMICOLON);
+                    r.keyRelease(KeyEvent.VK_SEMICOLON);
+                    r.keyPress(KeyEvent.VK_ENTER);
+                    r.keyRelease(KeyEvent.VK_ENTER);
+
+                    start(r);
+                    type("y", r, true);
+                    r.keyPress(KeyEvent.VK_SEMICOLON);
+                    r.keyRelease(KeyEvent.VK_SEMICOLON);
+                    r.keyPress(KeyEvent.VK_ENTER);
+                    r.keyRelease(KeyEvent.VK_ENTER);
+
+                    end(r);
+                    type("y", r, true);
+                } else {
+                    type("s", r, true);
+                    type("h", r, true);
+                    type("i", r, true);
+                    type("f", r, true);
+                    type("t", r, true);
+                }
+                break;
+            case "z":
+                r.keyPress(KeyEvent.VK_SHIFT);
+                r.keyPress(KeyEvent.VK_Z);
+                r.keyRelease(KeyEvent.VK_Z);
+                r.keyRelease(KeyEvent.VK_SHIFT);
+                break;
+            case "Z":
+                if (tf) {
+                    type("s", r, true);
+                    type("h", r, true);
+                    type("i", r, true);
+                    type("f", r, true);
+                    type("t", r, true);
+                    r.keyPress(KeyEvent.VK_SEMICOLON);
+                    r.keyRelease(KeyEvent.VK_SEMICOLON);
+                    r.keyPress(KeyEvent.VK_ENTER);
+                    r.keyRelease(KeyEvent.VK_ENTER);
+
+                    start(r);
+                    type("z", r, true);
+                    r.keyPress(KeyEvent.VK_SEMICOLON);
+                    r.keyRelease(KeyEvent.VK_SEMICOLON);
+                    r.keyPress(KeyEvent.VK_ENTER);
+                    r.keyRelease(KeyEvent.VK_ENTER);
+
+                    end(r);
+                    type("z", r, true);
+                } else {
+                    type("s", r, true);
+                    type("h", r, true);
+                    type("i", r, true);
+                    type("f", r, true);
+                    type("t", r, true);
+                }
+                break;
+            case "0":
+                r.keyPress(KeyEvent.VK_0);
+                r.keyRelease(KeyEvent.VK_0);
+                break;
+            case "1":
+                r.keyPress(KeyEvent.VK_1);
+                r.keyRelease(KeyEvent.VK_1);
+                break;
+            case "2":
+                r.keyPress(KeyEvent.VK_2);
+                r.keyRelease(KeyEvent.VK_2);
+                break;
+            case "3":
+                r.keyPress(KeyEvent.VK_3);
+                r.keyRelease(KeyEvent.VK_3);
+                break;
+            case "4":
+                r.keyPress(KeyEvent.VK_4);
+                r.keyRelease(KeyEvent.VK_4);
+                break;
+            case "5":
+                r.keyPress(KeyEvent.VK_5);
+                r.keyRelease(KeyEvent.VK_5);
+                break;
+            case "6":
+                r.keyPress(KeyEvent.VK_6);
+                r.keyRelease(KeyEvent.VK_6);
+                break;
+            case "7":
+                r.keyPress(KeyEvent.VK_7);
+                r.keyRelease(KeyEvent.VK_7);
+                break;
+            case "8":
+                r.keyPress(KeyEvent.VK_8);
+                r.keyRelease(KeyEvent.VK_8);
+                break;
+            case "9":
+                r.keyPress(KeyEvent.VK_9);
+                r.keyRelease(KeyEvent.VK_9);
+                break;
+            case " ":
+                type("s", r, true);
+                type("p", r, true);
+                type("a", r, true);
+                type("c", r, true);
+                type("e", r, true);
+                break;
+            case ".":
+                type("p", r, true);
+                type("e", r, true);
+                type("r", r, true);
+                type("i", r, true);
+                type("o", r, true);
+                type("d", r, true);
+                break;
+            case ",":
+                type("c", r, true);
+                type("o", r, true);
+                type("m", r, true);
+                type("m", r, true);
+                type("a", r, true);
+                break;
+            case "!":
+                if (tf) {
+                    type("s", r, true);
+                    type("h", r, true);
+                    type("i", r, true);
+                    type("f", r, true);
+                    type("t", r, true);
+                    r.keyPress(KeyEvent.VK_SEMICOLON);
+                    r.keyRelease(KeyEvent.VK_SEMICOLON);
+                    r.keyPress(KeyEvent.VK_ENTER);
+                    r.keyRelease(KeyEvent.VK_ENTER);
+
+                    start(r);
+                    r.keyPress(KeyEvent.VK_1);
+                    r.keyRelease(KeyEvent.VK_1);
+                    r.keyPress(KeyEvent.VK_SEMICOLON);
+                    r.keyRelease(KeyEvent.VK_SEMICOLON);
+                    r.keyPress(KeyEvent.VK_ENTER);
+                    r.keyRelease(KeyEvent.VK_ENTER);
+
+                    end(r);
+                    r.keyPress(KeyEvent.VK_1);
+                    r.keyRelease(KeyEvent.VK_1);
+                } else {
+                    type("s", r, true);
+                    type("h", r, true);
+                    type("i", r, true);
+                    type("f", r, true);
+                    type("t", r, true);
+                }
+                break;
+            case "(":
+                if (tf) {
+                    type("s", r, true);
+                    type("h", r, true);
+                    type("i", r, true);
+                    type("f", r, true);
+                    type("t", r, true);
+                    r.keyPress(KeyEvent.VK_SEMICOLON);
+                    r.keyRelease(KeyEvent.VK_SEMICOLON);
+                    r.keyPress(KeyEvent.VK_ENTER);
+                    r.keyRelease(KeyEvent.VK_ENTER);
+
+                    start(r);
+                    r.keyPress(KeyEvent.VK_9);
+                    r.keyRelease(KeyEvent.VK_9);
+                    r.keyPress(KeyEvent.VK_SEMICOLON);
+                    r.keyRelease(KeyEvent.VK_SEMICOLON);
+                    r.keyPress(KeyEvent.VK_ENTER);
+                    r.keyRelease(KeyEvent.VK_ENTER);
+
+                    end(r);
+                    r.keyPress(KeyEvent.VK_9);
+                    r.keyRelease(KeyEvent.VK_9);
+                } else {
+                    type("s", r, true);
+                    type("h", r, true);
+                    type("i", r, true);
+                    type("f", r, true);
+                    type("t", r, true);
+                }
+                break;
+            case ")":
+                if (tf) {
+                    type("s", r, true);
+                    type("h", r, true);
+                    type("i", r, true);
+                    type("f", r, true);
+                    type("t", r, true);
+                    r.keyPress(KeyEvent.VK_SEMICOLON);
+                    r.keyRelease(KeyEvent.VK_SEMICOLON);
+                    r.keyPress(KeyEvent.VK_ENTER);
+                    r.keyRelease(KeyEvent.VK_ENTER);
+
+                    start(r);
+                    r.keyPress(KeyEvent.VK_0);
+                    r.keyRelease(KeyEvent.VK_0);
+                    r.keyPress(KeyEvent.VK_SEMICOLON);
+                    r.keyRelease(KeyEvent.VK_SEMICOLON);
+                    r.keyPress(KeyEvent.VK_ENTER);
+                    r.keyRelease(KeyEvent.VK_ENTER);
+
+                    end(r);
+                    r.keyPress(KeyEvent.VK_0);
+                    r.keyRelease(KeyEvent.VK_0);
+                } else {
+                    type("s", r, true);
+                    type("h", r, true);
+                    type("i", r, true);
+                    type("f", r, true);
+                    type("t", r, true);
+                }
+                break;
+            case "'":
+                type("q", r, true);
+                type("u", r, true);
+                type("o", r, true);
+                type("t", r, true);
+                type("e", r, true);
+                break;
+            case "\"":
+                if (tf) {
+                    type("s", r, true);
+                    type("h", r, true);
+                    type("i", r, true);
+                    type("f", r, true);
+                    type("t", r, true);
+                    r.keyPress(KeyEvent.VK_SEMICOLON);
+                    r.keyRelease(KeyEvent.VK_SEMICOLON);
+                    r.keyPress(KeyEvent.VK_ENTER);
+                    r.keyRelease(KeyEvent.VK_ENTER);
+
+                    start(r);
+                    type("'", r, true);
+                    r.keyPress(KeyEvent.VK_SEMICOLON);
+                    r.keyRelease(KeyEvent.VK_SEMICOLON);
+                    r.keyPress(KeyEvent.VK_ENTER);
+                    r.keyRelease(KeyEvent.VK_ENTER);
+
+                    end(r);
+                    type("'", r, true);
+                } else {
+                    type("s", r, true);
+                    type("h", r, true);
+                    type("i", r, true);
+                    type("f", r, true);
+                    type("t", r, true);
+                }
+                break;
+            case "/":
+                type("s", r, true);
+                type("l", r, true);
+                type("a", r, true);
+                type("s", r, true);
+                type("h", r, true);
+                break;
+            case "?":
+                if (tf) {
+                    type("s", r, true);
+                    type("h", r, true);
+                    type("i", r, true);
+                    type("f", r, true);
+                    type("t", r, true);
+                    r.keyPress(KeyEvent.VK_SEMICOLON);
+                    r.keyRelease(KeyEvent.VK_SEMICOLON);
+                    r.keyPress(KeyEvent.VK_ENTER);
+                    r.keyRelease(KeyEvent.VK_ENTER);
+
+                    start(r);
+                    type("/", r, true);
+                    r.keyPress(KeyEvent.VK_SEMICOLON);
+                    r.keyRelease(KeyEvent.VK_SEMICOLON);
+                    r.keyPress(KeyEvent.VK_ENTER);
+                    r.keyRelease(KeyEvent.VK_ENTER);
+
+                    end(r);
+                    type("/", r, true);
+                } else {
+                    type("s", r, true);
+                    type("h", r, true);
+                    type("i", r, true);
+                    type("f", r, true);
+                    type("t", r, true);
+                }
+                break;
+            default:
+                System.out.println("ERROR: '" + a + "' key not found. Substituted with 'PACHINKOPEEZONURMOM'.");
+                System.exit(0);
+        }
+    }
+
+    private static void line(Robot r) {
+        r.keyPress(KeyEvent.VK_SEMICOLON);
+        r.keyRelease(KeyEvent.VK_SEMICOLON);
+        r.keyPress(KeyEvent.VK_ENTER);
+        r.keyRelease(KeyEvent.VK_ENTER);
+    }
+
+    private static void newline(Robot r) {
+        start(r);
+        r.keyPress(KeyEvent.VK_SHIFT);
+        r.keyPress(KeyEvent.VK_E);
+        r.keyRelease(KeyEvent.VK_E);
+        r.keyPress(KeyEvent.VK_N);
+        r.keyRelease(KeyEvent.VK_N);
+        r.keyPress(KeyEvent.VK_T);
+        r.keyRelease(KeyEvent.VK_T);
+        r.keyPress(KeyEvent.VK_E);
+        r.keyRelease(KeyEvent.VK_E);
+        r.keyPress(KeyEvent.VK_R);
+        r.keyRelease(KeyEvent.VK_R);
+        r.keyRelease(KeyEvent.VK_SHIFT);
+        line(r);
+        end(r);
+        r.keyPress(KeyEvent.VK_SHIFT);
+        r.keyPress(KeyEvent.VK_E);
+        r.keyRelease(KeyEvent.VK_E);
+        r.keyPress(KeyEvent.VK_N);
+        r.keyRelease(KeyEvent.VK_N);
+        r.keyPress(KeyEvent.VK_T);
+        r.keyRelease(KeyEvent.VK_T);
+        r.keyPress(KeyEvent.VK_E);
+        r.keyRelease(KeyEvent.VK_E);
+        r.keyPress(KeyEvent.VK_R);
+        r.keyRelease(KeyEvent.VK_R);
+        r.keyRelease(KeyEvent.VK_SHIFT);
+        line(r);
+    }
+
+    private static void sig(Robot r) {
+        r.mouseMove((int)Toolkit.getDefaultToolkit().getScreenSize().getWidth()/2, (int)Toolkit.getDefaultToolkit().getScreenSize().getHeight()/2);
+        r.mousePress(MouseEvent.BUTTON1_DOWN_MASK);
+        r.keyPress(KeyEvent.VK_META);
+        r.delay(25);
+        r.keyPress(KeyEvent.VK_A);
+        r.keyRelease(KeyEvent.VK_A);
+        r.keyRelease(KeyEvent.VK_META);
+        r.keyPress(KeyEvent.VK_LEFT);
+        r.keyRelease(KeyEvent.VK_LEFT);
+        r.keyPress(KeyEvent.VK_ENTER);
+        r.keyRelease(KeyEvent.VK_ENTER);
+        r.keyPress(KeyEvent.VK_ENTER);
+        r.keyRelease(KeyEvent.VK_ENTER);
+        r.keyPress(KeyEvent.VK_UP);
+        r.keyRelease(KeyEvent.VK_UP);
+        r.keyPress(KeyEvent.VK_UP);
+        r.keyRelease(KeyEvent.VK_UP);
+        r.keyPress(KeyEvent.VK_SLASH);
+        r.keyRelease(KeyEvent.VK_SLASH);
+        r.keyPress(KeyEvent.VK_SLASH);
+        r.keyRelease(KeyEvent.VK_SLASH);
+        r.keyPress(KeyEvent.VK_SHIFT);
+        r.keyPress(KeyEvent.VK_C);
+        r.keyRelease(KeyEvent.VK_C);
+        r.keyRelease(KeyEvent.VK_SHIFT);
+        r.keyPress(KeyEvent.VK_O);
+        r.keyRelease(KeyEvent.VK_O);
+        r.keyPress(KeyEvent.VK_P);
+        r.keyRelease(KeyEvent.VK_P);
+        r.keyPress(KeyEvent.VK_Y);
+        r.keyRelease(KeyEvent.VK_Y);
+        r.keyPress(KeyEvent.VK_R);
+        r.keyRelease(KeyEvent.VK_R);
+        r.keyPress(KeyEvent.VK_I);
+        r.keyRelease(KeyEvent.VK_I);
+        r.keyPress(KeyEvent.VK_G);
+        r.keyRelease(KeyEvent.VK_G);
+        r.keyPress(KeyEvent.VK_H);
+        r.keyRelease(KeyEvent.VK_H);
+        r.keyPress(KeyEvent.VK_T);
+        r.keyRelease(KeyEvent.VK_T);
+        r.keyPress(KeyEvent.VK_SPACE);
+        r.keyRelease(KeyEvent.VK_SPACE);
+        r.keyPress(KeyEvent.VK_SHIFT);
+        r.keyPress(KeyEvent.VK_T);
+        r.keyRelease(KeyEvent.VK_T);
+        r.keyRelease(KeyEvent.VK_SHIFT);
+        r.keyPress(KeyEvent.VK_E);
+        r.keyRelease(KeyEvent.VK_E);
+        r.keyPress(KeyEvent.VK_R);
+        r.keyRelease(KeyEvent.VK_R);
+        r.keyPress(KeyEvent.VK_R);
+        r.keyRelease(KeyEvent.VK_R);
+        r.keyPress(KeyEvent.VK_Y);
+        r.keyRelease(KeyEvent.VK_Y);
+        r.keyPress(KeyEvent.VK_A);
+        r.keyRelease(KeyEvent.VK_A);
+        r.keyPress(KeyEvent.VK_K);
+        r.keyRelease(KeyEvent.VK_K);
+        r.keyPress(KeyEvent.VK_I);
+        r.keyRelease(KeyEvent.VK_I);
+        r.keyPress(KeyEvent.VK_SHIFT);
+        r.keyPress(KeyEvent.VK_Y);
+        r.keyRelease(KeyEvent.VK_Y);
+        r.keyRelease(KeyEvent.VK_SHIFT);
+        r.keyPress(KeyEvent.VK_O);
+        r.keyRelease(KeyEvent.VK_O);
+        r.keyPress(KeyEvent.VK_U);
+        r.keyRelease(KeyEvent.VK_U);
+    }
+}
