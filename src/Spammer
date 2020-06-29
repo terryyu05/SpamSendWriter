@@ -43,7 +43,9 @@ public class Spammer {
         robot(r);
 
         //fori
-        if(!j.equals("")) fori(j, r);
+        if(!j.equals("")) {
+            fori(j, r);
+        }
 
         //typing
         String[] a = input.split("");
